@@ -1,57 +1,67 @@
-# Sweet Lift Taxi: Predicción de Pedidos de Taxis en Aeropuertos
+# Sweet Lift Taxi: Predicción de Demanda con Series Temporales
 
-## Descripción del proyecto
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)
+![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-Sweet Lift Taxi ha recopilado datos históricos de pedidos de taxis en aeropuertos para anticipar la demanda horaria y atraer a más conductores durante las horas pico. En este proyecto se desarrolla un modelo de series temporales que predice el número de pedidos para la próxima hora.
+## 📖 Descripción
 
-## Estructura del repositorio
+Este proyecto aborda un problema de **series temporales** para la empresa Sweet Lift Taxi. El objetivo es predecir la cantidad de pedidos de taxis en aeropuertos para la próxima hora, permitiendo a la empresa optimizar la disponibilidad de conductores y satisfacer la demanda durante las horas pico. Para lograrlo, se ha desarrollado un modelo de Machine Learning entrenado con datos históricos de pedidos.
 
-```
-├── data/
-│   └── historia_pedidos.csv    # Datos crudos de pedidos por hora
-├── notebooks/
-│   └── SweetLiftTaxi.ipynb      # Notebook con EDA y modelado
-├── requirements.txt            # Dependencias del proyecto
-└── README.md                   # Este archivo
-```
 
-## Instalación
+## ✨ Fases del Proyecto
 
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/sweet-lift-taxi.git
-   cd sweet-lift-taxi
-   ```
-2. Crea un entorno virtual e instala dependencias:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate     # Windows: venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
+El proceso completo, documentado en el Jupyter Notebook, cubrió las siguientes etapas:
 
-## Uso
+*   **Análisis Exploratorio (EDA):** Visualización de tendencias, estacionalidad y patrones en los datos históricos.
+*   **Ingeniería de Características:** Creación de variables temporales (hora, día de la semana) y medias móviles para enriquecer el modelo.
+*   **Entrenamiento de Modelos:** Implementación y evaluación de diversos algoritmos de regresión.
+*   **Evaluación Rigurosa:** Medición del rendimiento del modelo final en un conjunto de prueba nunca antes visto.
 
-Abre y ejecuta el Jupyter Notebook:
+## 🎯 Hallazgos Clave del Modelo
 
-```bash
-jupyter notebook notebooks/SweetLiftTaxi.ipynb
-```
+**¡Aquí es donde se pone bueno!** El análisis del rendimiento de los modelos reveló conclusiones importantes:
 
-Dentro del notebook encontrarás:
+*   **Sobreajuste (Overfitting) Identificado:** Se detectó que modelos complejos como Random Forest, aunque muy precisos en el entrenamiento, no generalizaban bien al conjunto de prueba, mostrando un error (RMSE) significativamente mayor. Esto indica que "memorizaban" los datos en lugar de aprender las tendencias reales.
+*   **El Dilema Estabilidad vs. Precisión:** Modelos más simples o con técnicas de regularización demostraron ser más estables y consistentes entre entrenamiento y prueba. Este es un hallazgo clave para aplicaciones en producción, donde la fiabilidad y la predictibilidad del error son cruciales.
+*   **Ruta de Optimización Clara:** La conclusión principal es la necesidad de mejorar la generalización. Los siguientes pasos recomendados incluyen una optimización de hiperparámetros más robusta (ej. con Optuna o Hyperopt), una ingeniería de características más avanzada y la exploración de ensambles de modelos (stacking/blending) para combinar las fortalezas de varios algoritmos.
 
-- **EDA**: Análisis exploratorio y limpieza de datos.
-- **Modelado**: Entrenamiento y evaluación de un modelo de series temporales.
-- **Resultados**: Cálculo de RMSE en conjunto de prueba, con objetivo ≤ 48.
+## 🛠️ Tecnologías Usadas
 
-## Métrica de Evaluación
+<p align="left">
+  <a href="https://www.python.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a>
+  <a href="https://pandas.pydata.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/> </a>
+  <a href="https://scikit-learn.org/" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/1200px-Scikit_learn_logo_small.svg.png" alt="scikit-learn" width="40" height="40"/> </a>
+  <a href="https://matplotlib.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matplotlib/matplotlib-original.svg" alt="matplotlib" width="40" height="40"/> </a>
+  <a href="https://seaborn.pydata.org/" target="_blank"> <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="seaborn" width="40" height="40"/> </a>
+  <a href="https://jupyter.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original-wordmark.svg" alt="jupyter" width="40" height="40"/> </a>
+</p>
 
-- **RMSE** (Error Cuadrático Medio): debe ser ≤ 48.
+## ⚙️ Instalación y Uso
 
-## Contribuciones
+1.  **Clona el repositorio:**
+    ```
+    git clone https://github.com/tu-usuario/sweet-lift-taxi.git
+    cd sweet-lift-taxi
+    ```
+2.  **Crea y activa un entorno virtual:**
+    ```
+    python -m venv venv
+    source venv/bin/activate  # En Windows: venv\Scripts\activate
+    ```
+3.  **Instala las dependencias:**
+    ```
+    pip install -r requirements.txt
+    ```
+4.  **Ejecuta Jupyter Notebook:**
+    ```
+    jupyter notebook
+    ```
+    Navega a `notebooks/SweetLiftTaxi.ipynb` para ver el proyecto completo.
 
-¡Bienvenidas! Si quieres mejorar el proyecto, abre un issue o envía un pull request.
+## 👤 Autor
 
-## Licencia
+¡Hablemos de datos y modelos predictivos!
 
-Este proyecto está bajo la Licencia MIT.
-
+*   **GitHub:** [LuisT0](https://github.com/LuisT0)
+*   **LinkedIn:** [Luis Antonio Torres Villalobos](https://www.linkedin.com/in/luis-antonio-torres-villalobos/)
